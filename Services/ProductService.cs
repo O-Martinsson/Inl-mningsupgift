@@ -34,7 +34,7 @@ namespace Ikea.Services
                 .ToList();
         }
 
-        public void UpdateProduct(int productId, string name, string description, string priceInput, string colorInput, string offerInput)
+        public void UpdateProduct(int productId, string name, string description, string priceInput, string offerInput)
         {
             var product = _database.Products.FirstOrDefault(x => x.Id == productId);
             if (product == null)
@@ -60,18 +60,6 @@ namespace Ikea.Services
                 else
                 {
                     throw new ArgumentException("Felaktigt pris, priset ändras inte.");
-                }
-            }
-            // Färg
-            if (!string.IsNullOrWhiteSpace(colorInput))
-            {
-                if (int.TryParse(colorInput, out var colorValue) && Enum.IsDefined(typeof(Models.Color), colorValue))
-                {
-                    product.Color = (Models.Color)colorValue;
-                }
-                else
-                {
-                    throw new ArgumentException("Felaktig färg, nuvarandefärg behålls.");
                 }
             }
 

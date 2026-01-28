@@ -17,8 +17,11 @@ namespace Ikea.InUseClasses
         private static CategoryService _categoryService = new CategoryService(_database);
         private static CustomerService _customerService = new CustomerService(_database);
         private static Customer _loggedInCustomer = null;
-        private static Admin _loggedInAdmin = null;
-
+        private static Admin _loggedInAdmin;
+        public static void SetLoggedinAdmin(Admin loggedInAdmin)
+        {
+            _loggedInAdmin = loggedInAdmin;
+        }
         public static void RenderAdminMenu()
         {
             if(_loggedInAdmin == null)
@@ -60,6 +63,19 @@ namespace Ikea.InUseClasses
                 case "2":
                     CreateProduct.AddProduct();
                     break;
+                case "3":
+                    CreateCategory.RenderCreateCategory();
+                    break;
+                case "4":
+                    AdminProductEditor.RenderEditProduct();
+                    break;
+                case "5":
+                    AdminCategoryEditor.RenderEditCategory();
+                    break;
+                case "10"
+
+
+
             }
 
 

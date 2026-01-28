@@ -64,10 +64,13 @@ namespace Ikea.InUseClasses
                         RenderAdminLog.RenderAdminLogIn();
                         break;
                     case 10:
-
+                        CustomerCreation.RegisterCustomer();
                         break;
                     default:
-                        /*showerrorinput(rendermainmenu)*/
+                        Console.WriteLine("Ops something broke");
+                        Console.ReadKey();
+                        StartPage.StartPageRender();
+
                         break;
                 }
 
