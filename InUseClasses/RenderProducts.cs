@@ -19,25 +19,25 @@ namespace Ikea.InUseClasses
         private static Customer _loggedInCustomer = null;
 
 
-        //private static void RenderAllProducts()
-        //{
-        //    Console.Clear();
+        public static void RenderAllProducts()
+        {
+            Console.Clear();
 
-        //    var products = _productService.GetAllProducts();
-        //    RenderProd(products, MainMenu.MainMenuRender());
-        //}
-        //private static void RenderProd(List<Product> products, Action goBackAction)
-        //{
-        //    Console.Clear();
-        //    var boxOption new List<string> { "", "(0): Gå tillbaka", };
+            var products = _productService.GetAllProducts();
+            RenderProd(products, MainMenu.MainMenuRender);
+        }
+        private static void RenderProd(List<Product> products, Action goBackAction)
+        {
+            Console.Clear();
+            var boxOption = new List<string> {"","0: Gå tillbaka" };
 
-        //    for (int i = 0; i < products.Count; i++)
-        //    {
-        //        var product = products[i];
-        //        boxOption.Add($"{i + 1}.{product.Name} - {product.Price:C2}");
-        //    }
+            for (int i = 0; i < products.Count; i++)
+            {
+                var product = products[i];
+                boxOption.Add($"{i + 1}.{product.Name} - {product.Price:C2}");
+            }
 
-        //}
+        }
 
 
     }

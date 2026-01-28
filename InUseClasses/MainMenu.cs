@@ -39,7 +39,7 @@ namespace Ikea.InUseClasses
                         StartPage.StartPageRender();
                         break;
                     case 2:
-                        /*renderproducts*/
+                        RenderProducts.RenderAllProducts();
                         break;
                     case 3:
                         /*rendercategorys*/
@@ -61,7 +61,7 @@ namespace Ikea.InUseClasses
 
                         break;
                     case 9:
-
+                        RenderAdminLog.RenderAdminLogIn();
                         break;
                     case 10:
 
