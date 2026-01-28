@@ -66,7 +66,7 @@ namespace Ikea.InUseClasses
             var userInput = Console.ReadLine();
             if (string.IsNullOrEmpty(userInput))
             {
-                /*MAINMENU*/
+                MainMenu.MainMenuRender();
             }
             //else
             //{
