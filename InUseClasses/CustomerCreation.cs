@@ -48,7 +48,7 @@ namespace Ikea.InUseClasses
             {
 
                 Console.WriteLine($"Det gick inte att skap en kund pga: {e.Message}");
-                Console.ReadLine();
+                Console.ReadLine(); 
                 MainMenu.MainMenuRender();
             }
         }
