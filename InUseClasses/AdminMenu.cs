@@ -72,8 +72,21 @@ namespace Ikea.InUseClasses
                 case "5":
                     AdminCategoryEditor.RenderEditCategory();
                     break;
-                case "10"
+                case "6":
+                    AdminProductDeletionView.DeleteProduct();
+                    break;
+                case "7":
+                    AdminCustomerOverview.AdminCustomers();
+                    break;
+                case "8":
+                    AdminStockOverview.RenderAdminInStock();
+                    break;
+                case "9":
 
+                    break;
+                case "10":
+                    MainMenu.MainMenuRender();
+                    break;
 
 
             }

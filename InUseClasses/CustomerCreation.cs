@@ -16,24 +16,24 @@ namespace Ikea.InUseClasses
         {
             Console.Clear();
 
-            Console.WriteLine("Registrera ny kund");
+            Console.Write("Registrera ny kund");
 
-            Console.WriteLine("Namn:");
+            Console.Write("Namn:");
             var name = Console.ReadLine();
 
-            Console.WriteLine("Email: ");
+            Console.Write("Email: ");
             var email = Console.ReadLine();
 
-            Console.WriteLine("Adress: ");
+            Console.Write("Adress: ");
             var address = Console.ReadLine();
 
-            Console.WriteLine("Ort: ");
+            Console.Write("Ort: ");
             var city = Console.ReadLine();
 
-            Console.WriteLine("Telefonnummer: ");
+            Console.Write("Telefonnummer: ");
             var phone = Console.ReadLine();
 
-            Console.WriteLine("Välj lösen: ");
+            Console.Write("Välj lösen: ");
             var userPassword = Console.ReadLine();
 
             //spara i databasen

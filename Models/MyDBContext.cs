@@ -9,6 +9,10 @@ namespace Ikea.Models
 {
     public class MyDBContext : DbContext
     {
+
+        public const string CONNECTION_STRING = "Server=localhost\\SQLEXPRESS01;Database=IKEA;Trusted_Connection=True; TrustServerCertificate=True;";
+
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Customer> Customers { get; set; }

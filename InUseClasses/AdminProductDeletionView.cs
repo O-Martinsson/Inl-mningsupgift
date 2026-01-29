@@ -12,10 +12,8 @@ namespace Ikea.InUseClasses
     {
         private static MyDBContext _database = new MyDBContext();
         private static ProductService _productService = new ProductService(_database);
-        private static CategoryService _categoryService = new CategoryService(_database);
-        private static CustomerService _customerService = new CustomerService(_database);
         private static Customer _loggedInCustomer = null;
-        private static void DeleteProduct()
+        public static void DeleteProduct()
         {
             Console.Clear();
 
