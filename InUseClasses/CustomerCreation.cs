@@ -16,7 +16,7 @@ namespace Ikea.InUseClasses
         {
             Console.Clear();
 
-            Console.Write("Registrera ny kund");
+            Console.WriteLine("Registrera ny kund");
 
             Console.Write("Namn:");
             var name = Console.ReadLine();
@@ -33,13 +33,19 @@ namespace Ikea.InUseClasses
             Console.Write("Telefonnummer: ");
             var phone = Console.ReadLine();
 
+            Console.WriteLine("Postnummer");
+            var postalCode = Console.ReadLine();
+
+            Console.WriteLine("Land");
+            var country = Console.ReadLine();
+
             Console.Write("Välj lösen: ");
             var userPassword = Console.ReadLine();
 
             //spara i databasen
             try
             {
-                _customerService.CreateCustomer(name, email, address, city, phone, userPassword);
+                _customerService.CreateCustomer(name, email, address, city, phone,postalCode,country ,userPassword);
                 Console.WriteLine("Kund skapad, klicka för att gå tillbaka");
                 Console.ReadLine();
                 MainMenu.MainMenuRender();

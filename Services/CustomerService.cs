@@ -29,13 +29,13 @@ namespace Ikea.Services
                 .FirstOrDefault(c => c.Email == email && c.Password == password);
         }
 
-        public void CreateCustomer(string name, string email, string address, string city, string phone, string userPassword)
+        public void CreateCustomer(string name, string email, string address, string city, string phone, string userPassword, string postalCode, string country)
         {
-            if (!string.IsNullOrWhiteSpace(name))
+            if (string.IsNullOrWhiteSpace(name))
             {
                 throw new ArgumentException("Namn Saknas!");
             }
-            if (!string.IsNullOrWhiteSpace(email))
+            if (string.IsNullOrWhiteSpace(email))
             {
                 throw new ArgumentException("Email saknas!");
             }
@@ -43,7 +43,7 @@ namespace Ikea.Services
             {
                 throw new ArgumentException("Giltig Email saknas. Försök igen");
             }
-            if (!string.IsNullOrWhiteSpace(phone))
+            if (string.IsNullOrWhiteSpace(phone))
             {
                 throw new ArgumentException("Telefonnummer saknas!");
             }
@@ -51,13 +51,21 @@ namespace Ikea.Services
             {
                 throw new ArgumentException("Lösenord saknas!");
             }
-            if (!string.IsNullOrWhiteSpace(address))
+            if (string.IsNullOrWhiteSpace(address))
             {
                 throw new ArgumentException("Adress saknas!");
             }
-            if (!string.IsNullOrWhiteSpace(city))
+            if (string.IsNullOrWhiteSpace(city))
             {
                 throw new ArgumentException("Stad saknas!");
+            }
+            if (string.IsNullOrWhiteSpace(postalCode))
+            {
+                throw new ArgumentException("Postnummer saknas!");
+            }
+            if (string.IsNullOrWhiteSpace(country))
+            {
+                throw new ArgumentException("Land saknas!");
             }
 
             _database.Add(new Customer
@@ -67,7 +75,9 @@ namespace Ikea.Services
                 Address = address,
                 City = city,
                 Phonenumber = phone,
-                Password = userPassword
+                Password = userPassword,
+                PostalCode = postalCode,
+                Country = country
             });
             _database.SaveChanges();
         }

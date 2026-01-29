@@ -50,8 +50,6 @@ namespace Ikea.InUseClasses
                     foreach (var p in bestSelling)
                         Console.WriteLine($"{p.ProductName} - {p.TotalSold} st");
 
-
-
                 //Populäraste kategorin
 
                 var popularCategoryQ = """

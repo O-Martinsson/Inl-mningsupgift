@@ -11,9 +11,11 @@ namespace Ikea.InUseClasses
     {
         public static void MainMenuRender()
         {
-            Console.Clear();
+            while (true)
+            {
+                Console.Clear();
 
-            var optionsMenu = new List<string>
+                var optionsMenu = new List<string>
             {
                 "(1) Startsidan",
                 "(2) Se alla produkter",
@@ -26,60 +28,60 @@ namespace Ikea.InUseClasses
                 "(9) Admin",
                 "(10) Bli kund"
             };
-            var mainMenu = new Window("Huvudmeny", 2, 2, optionsMenu);
-            mainMenu.Draw();
+                var mainMenu = new Window("Huvudmeny", 2, 2, optionsMenu);
+                mainMenu.Draw();
 
-            var choice = Console.ReadLine();
+                var choice = Console.ReadLine();
 
-            if (int.TryParse(choice, out int value))
-            {
-                switch (value)
+                if (int.TryParse(choice, out int value))
                 {
-                    case 1:
-                        StartPage.StartPageRender();
-                        break;
-                    case 2:
-                        RenderProducts.RenderAllProducts();
-                        break;
-                    case 3:
-                        /*rendercategorys*/
-                        break;
-                    case 4:
-                        /*renderbasket*/
-                        break;
-                    case 5:
+                    switch (value)
+                    {
+                        case 1:
+                            StartPage.StartPageRender();
+                            break;
+                        case 2:
+                            RenderProducts.RenderAllProducts();
+                            break;
+                        case 3:
+                            CategoryShow.ListCategorys();
+                            break;
+                        case 4:
+                            RenderCart.RenderBasket();
+                            break;
+                        case 5:
 
-                        break;
-                    case 6:
+                            break;
+                        case 6:
 
-                        break;
-                    case 7:
+                            break;
+                        case 7:
 
-                        break;
+                            break;
 
-                    case 8:
+                        case 8:
 
-                        break;
-                    case 9:
-                        RenderAdminLog.RenderAdminLogIn();
-                        break;
-                    case 10:
-                        CustomerCreation.RegisterCustomer();
-                        break;
-                    default:
-                        Console.WriteLine("Ops something broke");
-                        Console.ReadKey();
-                        StartPage.StartPageRender();
+                            break;
+                        case 9:
+                            RenderAdminLog.RenderAdminLogIn();
+                            break;
+                        case 10:
+                            CustomerCreation.RegisterCustomer();
+                            break;
+                        default:
+                            Console.WriteLine("Ops something broke");
+                            Console.ReadKey();
+                            StartPage.StartPageRender();
 
-                        break;
+                            break;
+                    }
+
                 }
+                else
+                { /*Showerrorinput*/}
+
 
             }
-            else
-            { /*Showerrorinput*/}
-
-
-
 
 
         }
