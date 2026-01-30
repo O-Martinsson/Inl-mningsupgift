@@ -87,6 +87,7 @@ namespace Ikea.InUseClasses
                 { 
                     throw new ArgumentException("ERROR U CRASHED MY PROGRAM");
                     Console.ReadKey();
+                    MainMenuRender();
                 }
 
 
