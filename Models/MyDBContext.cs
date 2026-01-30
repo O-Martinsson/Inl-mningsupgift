@@ -12,7 +12,7 @@ namespace Ikea.Models
 
        // public const string CONNECTION_STRING = "Server=localhost\\SQLEXPRESS01;Database=IKEA;Trusted_Connection=True; TrustServerCertificate=True;";
 
-        public const string CONNECTION_STRING = "Server=tcp:oliverdb.database.windows.net,1433;Initial Catalog=Oliverdb;Persist Security Info=False;User ID=dbadmin;Password=HejHejHej123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        public const string CONNECTION_STRING = "Connectionstring"
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -34,7 +34,7 @@ namespace Ikea.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=tcp:oliverdb.database.windows.net,1433;Initial Catalog=Oliverdb;Persist Security Info=False;User ID=dbadmin;Password=HejHejHej123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            optionsBuilder.UseSqlServer(""Connectionstring"")
         }
     }
 }
