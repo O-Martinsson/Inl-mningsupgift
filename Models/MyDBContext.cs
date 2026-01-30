@@ -34,7 +34,7 @@ namespace Ikea.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(""Connectionstring"")
+            optionsBuilder.UseSqlServer("Connectionstring")
         }
     }
 }
