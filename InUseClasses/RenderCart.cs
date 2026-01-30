@@ -12,18 +12,18 @@ namespace Ikea.InUseClasses
     internal class RenderCart
     {
         private static MyDBContext _database = new MyDBContext();
-        private static ProductService _productService = new ProductService(_database);
-        private static CategoryService _categoryService = new CategoryService(_database);
-        private static CustomerService _customerService = new CustomerService(_database);
-        private static Customer _loggedInCustomer;
+        
+
+
         public static void RenderBasket()
         {
+
             while (true)
             {
                 Console.Clear();
                 var boxOptions = new List<string>();
 
-                if (_loggedInCustomer == null)
+                if (CustomerLogInScreen.LoggedInCustomer() == null)
                 {
                     Console.WriteLine("Du måste logga in");
                     Console.ReadKey();
@@ -33,7 +33,7 @@ namespace Ikea.InUseClasses
                 var items = _database.CartItems
                     .Include(p => p.Product)
                     .Include(c => c.Cart)
-                    .Where(c => c.Cart.CustomerId == _loggedInCustomer.Id)
+                    .Where(c => c.Cart.CustomerId == CustomerLogInScreen.LoggedInCustomer().Id)
                     .ToList();
 
                 if (!items.Any())
@@ -53,7 +53,7 @@ namespace Ikea.InUseClasses
                     boxOptions.Add("");
                     boxOptions.Add($"Totalt: {total:C2}");
                 }
-                var box = new Window("Kundkorg", 0, 0, boxOptions);
+                var box = new Window("Kundkorg", 12, 12, boxOptions);
                 box.Draw();
 
                 var menuOptions = new List<string>();
@@ -85,7 +85,7 @@ namespace Ikea.InUseClasses
                             Console.WriteLine("Kundkorgen är tom");
                             return;
                         }
-                        //RenderShipping();
+                        ShippingLoad.RenderShipping();
                         return;
                     default:
 

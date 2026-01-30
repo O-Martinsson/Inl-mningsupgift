@@ -42,10 +42,13 @@ namespace Ikea.InUseClasses
             Console.Write("Välj lösen: ");
             var userPassword = Console.ReadLine();
 
+
+
+
             //spara i databasen
             try
             {
-                _customerService.CreateCustomer(name, email, address, city, phone,postalCode,country ,userPassword);
+                _customerService.CreateCustomer(name, email, address, city, phone,userPassword,postalCode,country );
                 Console.WriteLine("Kund skapad, klicka för att gå tillbaka");
                 Console.ReadLine();
                 MainMenu.MainMenuRender();

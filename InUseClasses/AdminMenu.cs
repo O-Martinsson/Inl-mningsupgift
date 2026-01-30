@@ -82,7 +82,7 @@ namespace Ikea.InUseClasses
                     AdminStockOverview.RenderAdminInStock();
                     break;
                 case "9":
-
+                    AdminAllOrders.RenderAllOrders();
                     break;
                 case "10":
                     MainMenu.MainMenuRender();

@@ -28,7 +28,7 @@ namespace Ikea.InUseClasses
             var products = _productService.GetAllProducts();
             RenderProd(products, MainMenu.MainMenuRender);
         }
-        private static void RenderProd(List<Product> products, Action goBackAction)
+        public static void RenderProd(List<Product> products, Action goBackAction)
         {
             Console.Clear();
             var boxOptions = new List<string> { "", "0: Gå tillbaka", };
@@ -122,7 +122,7 @@ namespace Ikea.InUseClasses
                     return;
                 }
 
-                if (_loggedInCustomer == null)
+                if (CustomerLogInScreen.LoggedInCustomer() == null)
                 {
                     Console.WriteLine("Du måste logga in");
                     return;
@@ -136,13 +136,13 @@ namespace Ikea.InUseClasses
                 }
                 var cart = _database.Carts
                    .Include(c => c.Items)
-                   .FirstOrDefault(c => c.CustomerId == _loggedInCustomer.Id);
+                   .FirstOrDefault(c => c.CustomerId == CustomerLogInScreen.LoggedInCustomer().Id);
 
                 if (cart == null)
                 {
                     cart = new Cart
                     {
-                        CustomerId = _loggedInCustomer.Id,
+                        CustomerId = CustomerLogInScreen.LoggedInCustomer().Id,
                     };
 
                     _database.Carts.Add(cart);

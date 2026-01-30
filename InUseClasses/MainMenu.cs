@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using Ikea.InUseClasses;
+using Ikea.Models;
 
 namespace Ikea.InUseClasses
 {
@@ -50,16 +52,20 @@ namespace Ikea.InUseClasses
                             RenderCart.RenderBasket();
                             break;
                         case 5:
-
+                            SearchFeature.RenderSearch();
                             break;
                         case 6:
-
+                            CustomerLogInScreen.CustomerLogIn();
                             break;
                         case 7:
-
+                            OrderView.RenderMyOrders();
                             break;
 
                         case 8:
+                            CustomerLogInScreen.LogOutCustomer();
+                            Console.WriteLine("Du har loggat ut!");
+                            Console.ReadKey();
+                            StartPage.StartPageRender();
 
                             break;
                         case 9:
@@ -78,7 +84,10 @@ namespace Ikea.InUseClasses
 
                 }
                 else
-                { /*Showerrorinput*/}
+                { 
+                    throw new ArgumentException("ERROR U CRASHED MY PROGRAM");
+                    Console.ReadKey();
+                }
 
 
             }

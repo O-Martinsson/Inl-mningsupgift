@@ -24,74 +24,56 @@ namespace Ikea.InUseClasses
 
         public static void StartPageRender()
         {
-            Console.Clear();
-
-            var nameBox = new Window($"Välkommen till *IKEA*", 22, 1, new List<string> { "Dina Möbler Enkelt monterade" });
-            nameBox.Draw();
-
-            var products = _productService.GetSpecialOfferProducts();
-
-            for (var i = 0; i < products.Count; i++)
+            while (true)
             {
-                var left = 2;
-                var product = products[i];
+                Console.Clear();
 
-                var specialOffer = new List<string>();
-                specialOffer.Add(product.Name);
-                specialOffer.Add("Kategori: " + product.Category?.Name);
-                specialOffer.Add(product.Price.ToString("C2"));
-                specialOffer.Add("");
+                var nameBox = new Window($"Välkommen till *IKEA*", 22, 1, new List<string> { "Dina Möbler Enkelt monterade" });
+                nameBox.Draw();
 
-                switch (i)
+                var products = _productService.GetSpecialOfferProducts();
+
+                for (var i = 0; i < products.Count; i++)
                 {
-                    case 0:
-                        left = 2;
-                        specialOffer.Add("Klicka A för att köpa");
-                        break;
-                    case 1:
-                        left = 30;
-                        specialOffer.Add("Klicka B för att köpa");
-                        break;
-                    case 2:
-                        left = 60;
-                        specialOffer.Add("Klicka C för att köpa");
-                        break;
+                    var left = 2;
+                    var product = products[i];
+
+                    var specialOffer = new List<string>();
+                    specialOffer.Add(product.Name);
+                    specialOffer.Add("Kategori: " + product.Category?.Name);
+                    specialOffer.Add(product.Price.ToString("C2"));
+                    specialOffer.Add("");
+
+                    switch (i)
+                    {
+                        case 0:
+                            left = 2;
+                            specialOffer.Add("");
+                            break;
+                        case 1:
+                            left = 30;
+                            specialOffer.Add("");
+                            break;
+                        case 2:
+                            left = 60;
+                            specialOffer.Add("");
+                            break;
+                    }
+                    var SpecialOfferWindow = new Window($"Erbjudande {i + 1}", left, 6, specialOffer);
+                    SpecialOfferWindow.Draw();
                 }
-                var SpecialOfferWindow = new Window($"Erbjudande {i + 1}", left, 6, specialOffer);
-                SpecialOfferWindow.Draw();
+
+                Console.WriteLine("\nKlicka enter för att komma vidare till huvudmeny");
+
+                var userInput = Console.ReadLine();
+                if (string.IsNullOrEmpty(userInput))
+                {
+                    MainMenu.MainMenuRender();
+                }
+                
+
             }
-
-            Console.WriteLine("\nVälj Erbjudande eller klicka enter för att komma vidare till huvudmeny");
-
-            var userInput = Console.ReadLine();
-            if (string.IsNullOrEmpty(userInput))
-            {
-                MainMenu.MainMenuRender();
-            }
-            //else
-            //{
-            //    switch (userInput.ToLower())
-            //    {
-            //        case "a":
-            //            var product = products[0];
-            //            RenderProduct(product, StartPageRender);
-            //            break;
-            //        case "b":
-            //            var secondProduct = products[1];
-            //            RenderProduct(secondProduct, StartPageRender);
-            //            break;
-            //        case "c":
-            //            var thirdProduct = products[2];
-            //            RenderProduct(thirdProduct, StartPageRender);
-            //            break;
-            //        default:
-            //            throw new ArgumentException("Felaktig inmatning");
-            //            break;
-            //    }
-            //}
-
         }
-
 
     }
 }
