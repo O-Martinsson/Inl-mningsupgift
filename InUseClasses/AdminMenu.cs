@@ -18,12 +18,15 @@ namespace Ikea.InUseClasses
         private static CustomerService _customerService = new CustomerService(_database);
         private static Customer _loggedInCustomer = null;
         private static Admin _loggedInAdmin;
+
+        // Hämtar och kollar ifall _loggedInAdmin är = admin istället för null
         public static void SetLoggedinAdmin(Admin loggedInAdmin)
         {
             _loggedInAdmin = loggedInAdmin;
         }
         public static void RenderAdminMenu()
         {
+            // Om _loggedInAdmin är null körs detta och du kommer såsmåning om tillbaka till huvudmenyn
             if(_loggedInAdmin == null)
             {
                 Console.WriteLine("Du måste vara inloggad som admin");
